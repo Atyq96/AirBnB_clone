@@ -92,14 +92,6 @@ class HBNBCommand(cmd.Cmd):
             else:
                 print("** no instance found **")
 
-            # for i in dic.values():
-            #     if i.__class__.__name__ == tokensD[0] and i.id == tokensD[1]:
-            #         del i
-            #         models.storage.save()
-            #         return
-            # print("** instance id missing **")
-            # models.storage.save()
-
     def do_all(self, argument):
         """all string representation of all instances"""
         tokensA = shlex.split(argument)
