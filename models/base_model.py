@@ -6,11 +6,20 @@ from datetime import datetime
 
 class BaseModel:
     """defines a BaseModel"""
-    def __init__(self):
+    def __init__(self, *args, **kwargs):
         """Constructor"""
-        self.id = str(uuid.uuid4())
-        self.created_at = datetime.now()
-        self.updated_at = datetime.now()
+        if kwargs:
+            for x, y in kwargs.items():
+                if x == "created_at":
+                    y = datetime.strptime(y, '%Y-%m-%dT%H:%M:%S.%f')
+                if x == "updated_at":
+                    y = datetime.strptime(y, '%Y-%m-%dT%H:%M:%S.%f')
+                if x != "__class__":
+                    setattr(self, x, y)
+        else:
+            self.id = str(uuid.uuid4())
+            self.created_at = datetime.now()
+            self.updated_at = datetime.now()
 
     def __str__(self):
         """returns printable string representation"""
