@@ -33,7 +33,7 @@ class FileStorage:
         """deserializes the JSON file to __objects"""
         try:
             with open(self.__file_path, 'r', encoding="UTF8") as f:
-                for n,y in json.load(f).items():
+                for n, y in json.load(f).items():
                     attri_value = eval(y["__class__"])(**y)
                     self.__objects[n] = attri_value
         except FileNotFoundError:
