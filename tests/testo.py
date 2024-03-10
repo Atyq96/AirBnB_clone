@@ -9,6 +9,7 @@ class TestBaseModel(unittest.TestCase):
 
     def test_id_generation(self):
         self.assertIsNotNone(self.base_model.id)
+
     def test_created_at(self):
         self.assertIsNotNone(self.base_model.created_at)
 
@@ -16,6 +17,7 @@ class TestBaseModel(unittest.TestCase):
         initial_updated_at = self.base_model.updated_at
         self.base_model.save()
         self.assertNotEqual(initial_updated_at, self.base_model.updated_at)
+
     def test_to_dict(self):
         model_dict = self.base_model.to_dict()
         self.assertIsInstance(model_dict, dict)
@@ -24,6 +26,6 @@ class TestBaseModel(unittest.TestCase):
         self.assertIn('created_at', model_dict)
         self.assertIn('updated_at', model_dict)
 
+
 if __name__ == '__main__':
     unittest.main()
-
