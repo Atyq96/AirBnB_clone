@@ -13,7 +13,8 @@ class BaseModel:
 
     def __str__(self):
         """returns printable string representation"""
-        return "[{}] ({}) {}".format(BaseModel.__name__, self.id, self.__dict__)
+        namo = self.__class__.__name__
+        return "[{}] ({}) {}".format(namo, self.id, self.__dict__)
 
     def save(self):
         """updates updated_at with current datetime"""
