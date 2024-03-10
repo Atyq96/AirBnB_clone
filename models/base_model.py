@@ -7,6 +7,7 @@ from datetime import datetime
 class BaseModel:
     """defines a BaseModel"""
     def __init__(self):
+        """Constructor"""
         self.id = str(uuid.uuid4())
         self.created_at = datetime.now()
         self.updated_at = datetime.now()
@@ -21,6 +22,7 @@ class BaseModel:
         self.updated_at = datetime.now()
 
     def to_dict(self):
+        """returns a dictionary with all keys/value of the instance"""
         instance_dict = self.__dict__.copy()
 
         instance_dict['__class__'] = self.__class__.__name__
