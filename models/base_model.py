@@ -3,6 +3,7 @@
 import uuid
 from datetime import datetime
 
+
 class BaseModel:
     """defines a BaseModel"""
     def __init__(self):
@@ -12,7 +13,7 @@ class BaseModel:
 
     def __str__(self):
         """returns printable string representation"""
-        return "[{}] ({}) {}".format(BaseModel.__name__,self.id,self.__dict__)
+        return "[{}] ({}) {}".format(BaseModel.__name__, self.id, self.__dict__)
 
     def save(self):
         """updates updated_at with current datetime"""
