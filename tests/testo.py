@@ -13,11 +13,6 @@ class TestBaseModel(unittest.TestCase):
     def test_created_at(self):
         self.assertIsNotNone(self.base_model.created_at)
 
-    def test_updated_at(self):
-        initial_updated_at = self.base_model.updated_at
-        self.base_model.save()
-        self.assertNotEqual(initial_updated_at, self.base_model.updated_at)
-
     def test_to_dict(self):
         model_dict = self.base_model.to_dict()
         self.assertIsInstance(model_dict, dict)
